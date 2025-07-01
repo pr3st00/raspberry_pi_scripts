@@ -1,0 +1,13 @@
+
+
+cd scripts/
+cd rpi-sync/
+ls -ltr
+sh rclone-install.sh 
+rclone config
+
+docker cp all-databases.sql mysql:/tmp
+dockershell mysql
+
+
+

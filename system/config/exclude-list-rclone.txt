@@ -1,0 +1,30 @@
+# 
+# Exclude from rclone sync
+#
+# Misc
+.*/**
+n/**
+jarviscache/**
+temp/**
+node_modules/**
+Music/**
+_BACKUP/**
+_backup/**
+Documents/**
+Downloads/**
+# Projects
+projects/scripts/docker/nagios/etc/**
+projects/scripts/docker/nagios/var/**
+projects/scripts/docker/pihole/etc-pihole/**
+projects/scripts/docker/pihole/etc-dnsmasq.d/**
+projects/scripts/docker/nginx/html/iptv/**
+projects/scripts/docker/nextcloud/nextcloud-data/data/**
+projects/scripts/docker/nextcloud/nextcloud-data/config/**
+projects/scripts/docker/portainer/portainer_data/**
+projects/scripts/docker/emulatorjs/data/**
+projects/scripts/docker/nextcloud/nextcloud-data/**
+# Java build artifacts
+projects/java/finance/target
+projects/java/eventproxy/target
+projects/java/jarvis_client_library/target
+# EOF

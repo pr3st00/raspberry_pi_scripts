@@ -1,0 +1,777 @@
+    1  rasp-config
+    2  raspi-config
+    3  sudo raspi-config
+    4  ipconfig
+    5  nslookup
+    6  ping 192.168.1.1
+    7  sudo ifconfig
+    8  shutdown -h now
+    9  sudo raspi-config
+   10  dmesg
+   11  ls -ltr
+   12  sudo shutdown -h now
+   13  df -h .
+   14  dmesg
+   15  ls -ltr
+   16  vi /etc/hostname 
+   17  sudo vi /etc/hostname 
+   18  hostname
+   19  hostname -s
+   20  man hostname
+   21  hostname servcies
+   22  sudo hostname services
+   23  hostname
+   24  dmesg
+   25  vi /etc/fstab 
+   26  sudo vi /etc/fstab 
+   27  mkdir /external
+   28  sudo mkdir /external
+   29  cd /external/
+   30  ls -ltr
+   31  ls -ld
+   32  chown pi:pi .
+   33  sudo chown pi:pi .
+   34  ls -tlr
+   35  cat /etc/fstab 
+   36  mkdir hd1
+   37  mkdir hd2
+   38  mkdir hd3
+   39  ls -ltr
+   40  mount /external/hd1
+   41  sudo mount /external/hd1
+   42  ls -ltr
+   43  cd hd1
+   44  ls -ltr
+   45  cd
+   46  ls -ltr
+   47  dmesg
+   48  ls -ltr
+   49  cp -Rp /external/hd1/Backup/pi/home/* .
+   50  ls -ltr
+   51  sudo apt-get update
+   52  sudo apt-get upgrade
+   53  dmesg
+   54  reboot
+   55  sudo reboot
+   56  dmesg
+   57  ls -tlr
+   58  vi /boot/cmdline.txt 
+   59  cd
+   60  cd Backup/
+   61  cat cmdline.txt 
+   62  sudo vi /boot/cmdline.txt 
+   63  cd /boot/
+   64  vi config.txt 
+   65  vi 
+   66  cd 
+   67  cd Backup/
+   68  vi config.txt 
+   69  sudo vi /boot/config.txt 
+   70  sudo reboot
+   71  ls -ltr
+   72  cd scripts
+   73  ls
+   74  cd system/
+   75  ls -ltr
+   76  cd install/
+   77  ls -tlr
+   78  cat docker.sh 
+   79  sudo sh docker.sh 
+   80  sudo reboot
+   81  docker ps
+   82  ls -ltr
+   83  cd scripts
+   84  ls -ltr
+   85  cd docker/
+   86  ls -ltr
+   87  cd mysql/
+   88  ls -tlr
+   89  cat run.sh 
+   90  cat /home/pi/docker/env.sh
+   91  sh run.sh 
+   92  cat run.sh 
+   93  docker pull mysql
+   94  sh run.sh 
+   95  docker pull hypriot/rpi-mysql
+   96  docker images
+   97  docker image rm mysql
+   98  docker pull --platform linux/amd64 hypriot/rpi-mysql
+   99  cd ..
+  100  ls -ltr
+  101  cd nginx/
+  102  ls -ltr
+  103  cat useradd.sh 
+  104  docker-compose 
+  105  apt-get install docker-compose
+  106  sudo apt-get install docker-compose
+  107  cd ..
+  108  cd pihole/
+  109  ls
+  110  sudo pip3 install docker-compose
+  111  cd ..
+  112  ls
+  113  cd others/
+  114  ls
+  115  cd ...
+  116  cd ..
+  117  ls
+  118  cd system/
+  119  ls
+  120  cat docker.sh 
+  121  ls -ltr
+  122  cd install/
+  123  s
+  124  ls
+  125  cat docker.sh 
+  126  vi docker-compose.sh
+  127  chmod 755 docker
+  128  chmod 755 docker-compose.sh 
+  129  ./docker-compose.sh 
+  130  cd ..
+  131  cd docker/pihole/
+  132  ls -ltr
+  133  cat docker-compose.yml 
+  134  docker-compose 
+  135  docker-compose build
+  136  docker-compose pull
+  137  docker-compose build
+  138  ls
+  139  cat update.sh 
+  140  docker-compose up -d
+  141  docker network create services_network
+  142  docker-compose up -d
+  143  cat docker-compose.yml 
+  144  docker network
+  145  docker network ls
+  146  docker network rm services_network
+  147  cd ..
+  148  ls -tlr
+  149  cd ..
+  150  cd system/
+  151  ls
+  152  cat docker.sh 
+  153  ls -tlr
+  154  cd config/
+  155  ls
+  156  cd .
+  157  ls
+  158  cd ..
+  159  ls
+  160  ls -ltr
+  161  cat mi
+  162  cat misc.sh 
+  163  ls -tlr
+  164  cd install/
+  165  ls
+  166  docker network
+  167  docker network create
+  168  cd ..
+  169  cd ../
+  170  cd docker/
+  171  ls
+  172  cd pihole/
+  173  cat docker-compose.yml 
+  174  docker network create --subnet=172.24.0.0/16
+  175  docker network create --subnet=172.24.0.0/16 services_network
+  176  docker-compose up -d
+  177  docker ps
+  178  docker logs pihole -f
+  179  cd
+  180  cat .bashrc 
+  181  :q!
+  182  cd Backup/
+  183  ls
+  184  ls -tlra
+  185  cat .profile 
+  186  cd
+  187  vi .profile 
+  188  date
+  189  vi Backup/.profile 
+  190  vi .profile 
+  191  dockerps
+  192  cd scripts
+  193  dockerstats
+  194  dockerps
+  195  alias
+  196  ls -ltr
+  197  cd docker/
+  198  ls -tlr
+  199  cd nginx/
+  200  ls -ltr
+  201  docker-compose up -d
+  202  dockerps
+  203  cd
+  204  vi .profile 
+  205  cd /etc/
+  206  ls
+  207  cat motd 
+  208  cd
+  209  cd Backup/
+  210  cat motd
+  211  cat motd.sh.orig 
+  212  ls -ltr
+  213  sh motd.sh.orig
+  214  ls -ltr
+  215  cd profile.d/
+  216  ls
+  217  cat motd.sh 
+  218  sh motd.sh 
+  219  ls -tlr
+  220  vi motd.sh 
+  221  dockerps
+  222  dockerps
+  223  cd scripts
+  224  cd docker/
+  225  cd eventproxy
+  226  ls t-lr
+  227  ls -tlr
+  228  ./docker.sh 
+  229  ./docker.sh build
+  230  dockerps
+  231  ./docker.sh 
+  232  ./docker.sh run
+  233  dockerps
+  234  cd ..
+  235  cd google-assistant
+  236  ls
+  237  cat run.sh 
+  238  sh run.sh 
+  239  dockerps
+  240  docker logs google-assistant
+  241  docker logs eventproxy
+  242  dockerps
+  243  dockerstats
+  244  cd
+  245  ls -tlr
+  246  cd scripts
+  247  ls
+  248  cd rpi-sync/
+  249  ls -ltr
+  250  cat rclone-install.sh 
+  251  ls -ltr
+  252  cat rclone-install.sh 
+  253  ls -tlr
+  254  cat rclone-sync.sh 
+  255  temp
+  256  alias
+  257  vcgencmd measure_temp
+  258  top
+  259  cat /etc/resolv.conf
+  260  vi /etc/resolv.conf
+  261  dockerps
+  262  sudo vi /etc/resolv
+  263  sudo vi /etc/resolv.conf
+  264  docker stop google-assistant
+  265  docker stop eventproxy
+  266  cd
+  267  cd scripts/docker/nginx/
+  268  docker-compose stop
+  269  cd ../pihole/
+  270  docker-compose stop
+  271  dockerps
+  272  sudo reboot
+  273  dockerps
+  274  cd scripts
+  275  cd docker/pihole/
+  276  docker-compose start
+  277  dockerps
+  278  docker logs pihole -f
+  279  dockerps
+  280  docker logs pihole -f
+  281  dockerps
+  282  cd ..
+  283  cd ../system/
+  284  cat docker.sh 
+  285  cat docker.sh  | more
+  286  ./docker.sh start_required
+  287  dockerps
+  288  dockerstats
+  289  clera
+  290  mount 
+  291  cd /external/hd1
+  292  ls
+  293  cd ../hd2
+  294  ls
+  295  cd ..
+  296  ls -tlr
+  297  cd
+  298  ls -tlr
+  299  top
+  300  cd ..
+  301  ls
+  302  cd 
+  303  cd scripts
+  304  ls -ltr
+  305  cd
+  306  cd /external/hd1/Backup/pi/home/
+  307  ls -ltr
+  308  ls -tlra
+  309  cd
+  310  ls -tlr
+  311  cd Backup/
+  312  ls
+  313  cd profile.d/
+  314  ls
+  315  ./motd.sh 
+  316  whereis vcgencmd
+  317  vi motd.sh 
+  318  ./motd.sh 
+  319  sudo cp motd.sh /etc/profile.d/
+  320  dockerps
+  321  cd ..
+  322  ls -tlr
+  323  dmesg
+  324  ls -ltr
+  325  vi .bashrc 
+  326  vi .bash_aliases
+  327  router
+  328  vi .profile 
+  329  vi .bash_aliases 
+  330  vi .profile 
+  331  vi .bashrc 
+  332  vi .profile 
+  333  vi .bashrc 
+  334  vi .profile 
+  335  vi .bashrc 
+  336  dockerps
+  337  cd scripts
+  338  cd system/
+  339  ls
+  340  cd install/
+  341  ls -tlr
+  342  vi docker.sh 
+  343  vi docker-compose.sh 
+  344  cat vim.sh 
+  345  vi
+  346  cat smtp.sh 
+  347  vi smtp.sh 
+  348  sh smtp.sh 
+  349  ls
+  350  cat smtp.sh 
+  351  cd ..
+  352  cd 
+  353  cd Backup/
+  354  ls
+  355  cat msmtprc 
+  356  sudo vi /etc/msmtprc 
+  357  ls
+  358  crontab
+  359  crontab -e
+  360  cat crontab
+  361  crontab -e
+  362  cat crontab.root 
+  363  sudo crontab -e
+  364  cat crontab.root 
+  365  sudo crontab -e
+  366  mkdir /var/log/system
+  367  sudo mkdir /var/log/system
+  368  crontab -l
+  369  sudo chown pi:pi /var/log/system/
+  370  cd
+  371  ls -ltr
+  372  cd scripts/docker/
+  373  cd deluge/
+  374  ls
+  375  cat run.sh 
+  376  sh run.sh 
+  377  dockerps
+  378  docker stop deluge
+  379  cd ..
+  380  ls
+  381  cd portainer/
+  382  cat run.sh 
+  383  sh run.sh 
+  384  ls
+  385  cd ..
+  386  ls
+  387  cd nodered/
+  388  cat run.sh 
+  389  sh run.sh 
+  390  docker stop nodered
+  391  cd ..
+  392  cd squid/
+  393  ls
+  394  cat run.sh 
+  395  sh run.sh 
+  396  dockerps
+  397  docker logs squid
+  398  docker stop squid
+  399  cd ..
+  400  ls -ltr
+  401  cd phpmyadmin/
+  402  cat run.sh 
+  403  sh run.sh 
+  404  dockerps
+  405  docker stop phpmyadmin
+  406  dmesg
+  407  cd ..
+  408  ls
+  409  vi /etc/rc.local 
+  410  cd
+  411  cd Backup/
+  412  vi rc.local 
+  413  sudo vi /etc/rc.local 
+  414  cat /etc/rc.local 
+  415  /usr/bin/tvservice -o 
+  416  date
+  417  sudo /usr/sbin/ntpdate 0.debian.pool.ntp.org &
+  418  sudo apt-get install ntpdate
+  419  sudo /usr/sbin/ntpdate 0.debian.pool.ntp.org 
+  420  date
+  421  cd
+  422  cd projects/
+  423  cd c/
+  424  ls
+  425  cd wsdd2/
+  426  ls -tlr
+  427  ./wsdd2 
+  428  vi README.md 
+  429  make
+  430  make install
+  431  sudo make install
+  432  wsdd2 
+  433  file wsdd2
+  434  ls -ltr
+  435  vi /etc/rc.local 
+  436  cd ..
+  437  ls -tlr
+  438  cd scripts
+  439  cd system/
+  440  cd install/
+  441  ls
+  442  vi samba.sh
+  443  sh samba.sh 
+  444  ps -ef | grep smb
+  445  cd /etc/
+  446  ls -ltr
+  447  cd
+  448  cd Backup/
+  449  ls
+  450  ls -ltr
+  451  cat smb.conf 
+  452  cd /etc/samba/
+  453  ls -tlr
+  454  cp smb.conf smb.conf.orig
+  455  sudo cp smb.conf smb.conf.orig
+  456  cd -
+  457  sudo cp smb.conf /etc/samba/smb.conf
+  458  wsdd2 
+  459  sudo smbpasswd -a pi
+  460  cd
+  461  cd scripts/system/install/
+  462  vi samba.sh 
+  463  sudo systemctl restart smbd
+  464  cd ..
+  465  ls -ltr
+  466  cd install/
+  467  ls
+  468  chmod 755 *
+  469  ls -ltr
+  470  cd ..
+  471  cd 
+  472  cd projects/c/wsdd2/
+  473  ls -tlr
+  474  make clean
+  475  make
+  476  ./wsdd2 
+  477  sudo make install
+  478  cat /etc/rc.local 
+  479  /usr/sbin/wsdd2 -N NAS -G WORKGROUP -4 -d &
+  480  dmesg
+  481  ls -ltr
+  482  ps -ef | grep wsdd
+  483  ls -lt r
+  484  cd
+  485  ls -ltr
+  486  cd scripts/system/
+  487  cd install/
+  488  vi minidlna.sh
+  489  sudo apt-get install minidlna
+  490  cd 
+  491  cd -
+  492  vi minidlna.sh
+  493  cd ..
+  494  cd
+  495  cd Backup/
+  496  ls
+  497  cat minidlna.conf 
+  498  sudo cp /etc/minidlna.conf /etc/minidlna.conf.orig
+  499  sudo cp minidlna.conf /etc/
+  500  cd
+  501  cd scripts/system/
+  502  ./minidlna.sh 
+  503  ./minidlna.sh refresh
+  504  ls -ltr
+  505  cd ..
+  506  cd 
+  507  cd scripts
+  508  cd 
+  509  cd projects/
+  510  ls
+  511  cd scripts/
+  512  ls
+  513  cd rpi-sync/
+  514  ls -ltr
+  515  sh rclone-install.sh 
+  516  ls -ltr
+  517  vi rclone-sync.sh 
+  518  cd
+  519  cd scripts
+  520  ls
+  521  cd system/
+  522  ls
+  523  ./backup.sh 
+  524  ./backup.sh rclone
+  525  mkdir /var/log/system/backup
+  526  cd
+  527  cd Backup/
+  528  ls
+  529  cat config.txt 
+  530  ls -ltra
+  531  ls -ltr
+  532  cd
+  533  ls -ltr
+  534  cd rpi-sync/
+  535  ls
+  536  cd
+  537  ls -ltr
+  538  dockerps
+  539  htop
+  540  dockerps
+  541  dmesg
+  542  cd scripts
+  543  ls
+  544  cd docker/mysql/
+  545  ls -ltr
+  546  cat run.sh 
+  547  vi run.sh 
+  548  sh run.sh 
+  549  cat ../deluge/run.sh 
+  550  vi run.sh 
+  551  sh run.sh 
+  552  vi run.sh 
+  553  sh run.sh 
+  554  dockerps
+  555  cd
+  556  cd Backup/
+  557  ls
+  558  cd mysql/
+  559  ls -ltr
+  560  docker cp
+  561  docker cp all-databases.sql mysql:/tmp
+  562  dockershell mysql
+  563  cd
+  564  cd scripts
+  565  ls -tlr
+  566  cd system/
+  567  ls
+  568  event
+  569  cat .bashrc 
+  570  cd
+  571  cd scripts
+  572  ls
+  573  cd subs/
+  574  grep event *
+  575  vi functions.sh 
+  576  dockershell mysql
+  577  getevents 
+  578  dockerps
+  579  docker stats
+  580  docker stop mysql
+  581  cd .ssh
+  582  ssh-import-id
+  583  mkdir .ssh
+  584  cd .ssh/
+  585  mv /tmp/id_rsa.pub 
+  586  mv /tmp/id_rsa.pub .
+  587  mv id_rsa.pub authorized_keys
+  588  docker ps -a
+  589  docker rm mysql
+  590  dockerps
+  591  docker image rm mysql
+  592  cd scripts/docker/
+  593  cd mysql/
+  594  vi run.sh 
+  595  sh run.sh 
+  596  dockerps
+  597  dockerstats
+  598  dockershell mysql
+  599  cd
+  600  cd Backup/
+  601  ls
+  602  cd mysql/
+  603  ls
+  604  docker cp all-databases.sql mysql:/tmp
+  605  dockershell mysql
+  606  cd
+  607  getevents
+  608  getevents | more
+  609  date
+  610  ls ltr
+  611  ls -ltr
+  612  dockerps
+  613  dockerstats
+  614  htop
+  615  free -m
+  616  ls -ltr
+  617  ps -ef  | grep mini
+  618  ls -ltr
+  619  rclone
+  620  cd 
+  621  ls -ltr
+  622  cd scripts
+  623  ls -ltr
+  624  cd docker/
+  625  cd portainer/
+  626  ls -ltr
+  627  cat run.sh 
+  628  vi run.sh 
+  629  sh run.sh 
+  630  dockerps
+  631  docker stop portainer
+  632  cd ..
+  633  ls -ltr
+  634  cd
+  635  ls -tlr
+  636  crontab -e
+  637  cat /home/pi/scripts/system/backup.sh
+  638  cd scripts/system/
+  639  ls
+  640  cd config/
+  641  ls
+  642  cd ..
+  643  ./backup.sh 
+  644  ./backup.sh rclone
+  645  touch /var/log/system/backup/rclone_backup.log
+  646  ./backup.sh rclone
+  647  ls -ltr /var/log/msmtp.log
+  648  touch /var/log/msmtp.log
+  649  sudo touch /var/log/msmtp.log
+  650  sudo chown pi:pi /var/log/msmtp.log
+  651  ./backup.sh rclone
+  652  cd install/
+  653  vi smtp.sh 
+  654  cd ..
+  655  cd /external/hd1/Backup/pi/home/
+  656  ls -ltra
+  657  cd
+  658  cd Backup/
+  659  ls -tlr
+  660  rclone config
+  661  cd 
+  662  ls -ltr
+  663  cd scripts/system/
+  664  ./backup.sh rclone
+  665  rclone config reconnect googledrive:
+  666  iptables
+  667  iptables list
+  668  iptables l
+  669  iptables -L
+  670  sudo iptables -L
+  671  whereis rclone
+  672  file /usr/bin/rclone
+  673  rclone config
+  674  rclone config -h
+  675  rclone config file
+  676  cd
+  677  ls -ltr
+  678  mkdir temp
+  679  mv config.tar.gz temp/
+  680  mv rpi-sync temp/
+  681  ls -tlr
+  682  cd temp/
+  683  ls -tlr
+  684  tar zvxf config.tar.gz 
+  685  ls -ltr
+  686  cat .netrc 
+  687  cp .netrc ..
+  688  ls -ltr
+  689  ls -tlra
+  690  cd .config/
+  691  ls
+  692  cd rclone/
+  693  ls -tlr
+  694  cat rclone.conf 
+  695  cp rclone.conf /home/pi/.config/rclone/rclone.conf
+  696  cd
+  697  cd scripts/system/
+  698  ./backup.sh rclone
+  699  id
+  700  ifconfig
+  701  cd
+  702  cd temp/
+  703  ls -ltr
+  704  ls -tlra
+  705  cat .gitconfig 
+  706  cp .gitconfig /home/pi
+  707  cd .local
+  708  ls
+  709  cd share/
+  710  ls
+  711  cd .con
+  712  ls
+  713  cd
+  714  ls -tlr
+  715  ls -ltra
+  716  clear
+  717  ls -tlr
+  718  dockerps
+  719  ls -ltr
+  720  cd scripts
+  721  ls -tlr
+  722  cd rpi-sync/
+  723  ls
+  724  cd ..
+  725  cd docker/
+  726  ls
+  727  cd ..
+  728  ls -ltr
+  729  cd system/
+  730  ls -tlr
+  731  cd
+  732  cd scripts/system/
+  733  vi backup.sh 
+  734  cd config/
+  735  vi exclude-list-rclone.txt 
+  736  ls -ltr
+  737  cd
+  738  crontab -l
+  739  cat /var/log/system/alive.log
+  740  cronta -e
+  741  crontab -e
+  742  > /var/log/system/alive.log
+  743  crontab -l
+  744  /home/pi/scripts/iptv/iptv_update.sh
+  745  ls -ltr
+  746  dnesg
+  747  dmesg
+  748  ls -tlr
+  749  top
+  750  cd .ssh/
+  751  ls
+  752  cd ..
+  753  ls -tlr
+  754  ls-l tra
+  755  ls -ltra
+  756  mkdir .ssh.recalbox
+  757  cd .ssh.recalbox/
+  758  ls -tlr
+  759  ls
+  760  cd
+  761  ls -ltr
+  762  cd /var/log/system/
+  763  ls-l tr
+  764  ls -ltr
+  765  cd ..
+  766  ls -ltr
+  767  cd
+  768  cd scripts/system/install/
+  769  vi directories.sh
+  770  ls /var/log/sys
+  771  ls /var/log/system/
+  772  vi directories.sh
+  773  ls -ltr
+  774  chmod 755 *
+  775  ls -tlr
+  776  history
+  777  history > history

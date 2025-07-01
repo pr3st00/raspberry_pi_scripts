@@ -1,0 +1,63 @@
+# Home Internal DNS entries
+address=/router.home/192.168.1.1
+ptr-record=1.1.168.192.in-addr.arpa,"router.home"
+
+address=/notebook-fer.home/192.168.1.2
+ptr-record=2.1.168.192.in-addr.arpa,"notebook-fer.home"
+
+address=/xbox.home/192.168.1.3
+ptr-record=3.1.168.192.in-addr.arpa,"xbox.home"
+
+address=/notebook-pat.home/192.168.1.4
+ptr-record=4.1.168.192.in-addr.arpa,"notebook-pat.home"
+
+address=/impressora.home/192.168.1.5
+ptr-record=5.1.168.192.in-addr.arpa,"impressora.home"
+
+address=/ps4.home/192.168.1.6
+ptr-record=6.1.168.192.in-addr.arpa,"ps4.home"
+
+address=/recalbox.home/192.168.1.7
+ptr-record=7.1.168.192.in-addr.arpa,"recalbox.home"
+
+address=/tbd.home/192.168.1.8
+ptr-record=8.1.168.192.in-addr.arpa,"tbd.home"
+
+address=/nas.home/192.168.1.9
+address=/services.home/192.168.1.9
+ptr-record=9.1.168.192.in-addr.arpa,"services.home"
+
+address=/tbd2.home/192.168.1.10
+ptr-record=10.1.168.192.in-addr.arpa,"tbd2.home"
+
+address=/celular-luiz.home/192.168.1.11
+ptr-record=11.1.168.192.in-addr.arpa,"celular-luiz.home"
+
+address=/celular-fernando.home/192.168.1.12
+ptr-record=12.1.168.192.in-addr.arpa,"celular-fernando.home"
+
+address=/tablet-manu.home/192.168.1.13
+ptr-record=13.1.168.192.in-addr.arpa,"tablet-manu.home"
+
+address=/nazabox.home/192.168.1.100
+ptr-record=100.1.168.192.in-addr.arpa,"nazabox.home"
+
+# Secure entries
+address=/secure1.home/192.168.1.100
+address=/secure2.home/192.168.1.101
+address=/secure3.home/192.168.1.102
+address=/secure4.home/192.168.1.103
+address=/secure5.home/192.168.1.104
+address=/secure6.home/192.168.1.105
+
+# Temporary entries
+address=/a.tvgo.me/185.152.66.172
+
+# Custom dns for securehosts
+dhcp-mac=secure,7C:DD:90:68:DB:D0 #nazabox
+dhcp-option=secure,6,8.8.8.8,8.8.4.4
+
+# PI Hole
+dhcp-option= option:dns-server, 192.168.1.9
+
+# EOF

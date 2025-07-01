@@ -1,0 +1,11 @@
+ps4
+xbox
+notebookfer
+notebookpat
+tv
+tablet
+nazabox
+router
+jarvis
+recalbox
+Chromecast

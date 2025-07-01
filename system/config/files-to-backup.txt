@@ -1,0 +1,13 @@
+/boot/cmdline.txt
+/etc/minidlna.conf
+/etc/samba/smb.conf
+/etc/rc.local
+/etc/profile.d
+/etc/apt/sources.list.d
+/etc/fstab
+/home/pi/projects/scripts/system/config/exclude-list-rclone.txt
+/home/pi/projects/scripts/system/config/exclude-list-recalbox.txt
+/etc/msmtprc
+/etc/dhcpcd.conf
+/etc/wpa_supplicant/wpa_supplicant.conf
+/etc/docker/daemon.json

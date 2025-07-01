@@ -1,0 +1,10 @@
+spawn telnet router
+expect "router login:"
+send "root\n"
+expect "Password:"
+send "05trunks\n"
+expect "# "
+send "nvram show\n"
+expect "# "
+send "exit\n"
+expect eof
