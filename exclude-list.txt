@@ -2,5 +2,7 @@
 # Exclude from rsync
 #
 docker/
+lista.m3u
+iptv_update.log
 
 # EOF

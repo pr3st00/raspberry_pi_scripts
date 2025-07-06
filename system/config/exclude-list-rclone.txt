@@ -11,18 +11,18 @@ Music/**
 _BACKUP/**
 _backup/**
 Documents/**
-Downloads/**
+downloads/**
 # Projects
-projects/scripts/docker/nagios/etc/**
-projects/scripts/docker/nagios/var/**
-projects/scripts/docker/pihole/etc-pihole/**
-projects/scripts/docker/pihole/etc-dnsmasq.d/**
-projects/scripts/docker/nginx/html/iptv/**
-projects/scripts/docker/nextcloud/nextcloud-data/data/**
-projects/scripts/docker/nextcloud/nextcloud-data/config/**
-projects/scripts/docker/portainer/portainer_data/**
-projects/scripts/docker/emulatorjs/data/**
-projects/scripts/docker/nextcloud/nextcloud-data/**
+scripts/docker/nagios/etc/**
+scripts/docker/nagios/var/**
+scripts/docker/pihole/etc-pihole/**
+scripts/docker/pihole/etc-dnsmasq.d/**
+scripts/docker/nginx/html/iptv/**
+scripts/docker/nextcloud/nextcloud-data/data/**
+scripts/docker/nextcloud/nextcloud-data/config/**
+scripts/docker/portainer/portainer_data/**
+scripts/docker/emulatorjs/data/**
+scripts/docker/nextcloud/nextcloud-data/**
 # Java build artifacts
 projects/java/finance/target
 projects/java/eventproxy/target
