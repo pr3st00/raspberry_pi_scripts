@@ -1,0 +1,6 @@
+# 
+# Exclude from rsync
+#
+docker/
+
+# EOF

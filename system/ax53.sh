@@ -9,7 +9,7 @@ ROUTER_BACKUP_DIR="${BACKUP_DIR}/devices/router/ax53"
 ROUTER_LOG_DIR="${LOG_DIR}/backup"
 
 ROUTER_HOST="tplinkwifi.net/cgi-bin/luci/;stok=07bfe11dd354f513ee4dd5e2381e1fcd/admin/firmware?form=config_multipart"
-ROUTER_PASS='05Trunk$'
+ROUTER_PASS=$sec_ROUTER_PASS
 
 FILE="backup-Archer_AX53-2023-09-10.bin"
 
