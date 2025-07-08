@@ -5,8 +5,8 @@
 /etc/profile.d
 /etc/apt/sources.list.d
 /etc/fstab
-/home/pi/projects/scripts/system/config/exclude-list-rclone.txt
-/home/pi/projects/scripts/system/config/exclude-list-recalbox.txt
+/home/pi/scripts/system/config/exclude-list-rclone.txt
+/home/pi/scripts/system/config/exclude-list-recalbox.txt
 /etc/msmtprc
 /etc/dhcpcd.conf
 /etc/wpa_supplicant/wpa_supplicant.conf

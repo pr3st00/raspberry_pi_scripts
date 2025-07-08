@@ -7,8 +7,8 @@ source ${DIR}/../subs/functions.sh
 
 function heimdall_background() {
 
-	BACKGROUND_DIR="${PROJECTS_DIR}/scripts/docker/nginx/html/images/backgrounds/heimdall"
-	HEIMDALL_IMAGE_DIR="${PROJECTS_DIR}/scripts/docker/nginx/html/heimdall/img"
+	BACKGROUND_DIR="${CONTAINERS_DIR}/nginx/html/images/backgrounds/heimdall"
+	HEIMDALL_IMAGE_DIR="${CONTAINERS_DIR}/nginx/html/heimdall/img"
 	
 	info "Choosing a random heimdall background"
 

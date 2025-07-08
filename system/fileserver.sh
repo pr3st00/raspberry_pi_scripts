@@ -5,7 +5,7 @@ DIR=$(dirname "$SCRIPT")
 source ${DIR}/../subs/constants.sh
 source ${DIR}/../subs/functions.sh
 
-FILESERVER_DIR="${PROJECTS_DIR}/docker/nginx/html/php/elFinder/files"
+FILESERVER_DIR="${CONTAINERS_DIR}/nginx/html/php/elFinder/files"
 FILESERVER_BACKUP_DIR="/external/hd1/Backup/fileServer"
 TEMP_DIR="/tmp/index"
 

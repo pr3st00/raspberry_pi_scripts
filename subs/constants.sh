@@ -9,6 +9,7 @@ EXT_IF="WLAN0"
 # Locations
 BASE_DIR="/home/pi"
 PROJECTS_DIR="${BASE_DIR}/projects"
+CONTAINERS_DIR="${BASE_DIR}/docker"
 BACKUP_DIR="${BASE_DIR}/Backup"
 LOG_DIR="/var/log/system"
 

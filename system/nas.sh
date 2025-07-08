@@ -7,7 +7,9 @@ source ${DIR}/../subs/functions.sh
 
 LOG_FILE="$LOG_DIR/nas.log"
 DISKS="hd1 hd2"
+CONTAINERS="emulatorjs"
 SUDO="/usr/bin/sudo"
+WAIT_TIME=5
 
 function mountall() {
 
@@ -40,13 +42,46 @@ function umountall() {
 	event "NAS umounted" "$NAS_CAT"
 }
 
+function containers() {
+
+	ACTION=$1
+
+	info "Peforming action [$ACTION] on containers using disks"
+
+	for CONTAINER in $CONTAINERS
+	do
+		/usr/bin/docker $ACTION $CONTAINER > /dev/null 2>&1
+
+		if [[ $? == 0 ]]; then
+			STATUS="OK";
+		else
+			STATUS="FAILED";
+		fi
+			
+		printf " %-25s\t%-20s\n" "$CONTAINER" "[${STATUS}]"
+	done
+
+	info "Completed"
+}
+
+function waitForDisks() {
+
+	info "Waiting for disks ..."
+	sleep $WAIT_TIME
+	info "Completed"
+}
+
 case $1 in
 	mount)
 		logStart
 		mountall
+		waitForDisks
+		containers "start"
 		;;
 	umount)
 		logStart
+		containers "stop"
+		waitForDisks
 		umountall
 		;;
 	*)
