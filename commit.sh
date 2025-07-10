@@ -9,7 +9,7 @@ SOURCE_DIR="/home/pi/scripts/"
 DEST_DIR="/home/pi/projects/shell/raspberry_pi_scripts"
 EXCLUDE_FILE="$SOURCE_DIR/exclude-list.txt"
 
-COMMIT_MESSAGE="Updated scripts at $(date)" 
+COMMIT_MESSAGE="Updated scripts at $(date +'%m/%d/%Y %H:%m:%S')" 
 
 info "Synching scripts project \n"
 
