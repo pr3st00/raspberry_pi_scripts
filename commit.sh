@@ -36,7 +36,7 @@ info "Checking for changes \n"
 check_for_changes
 
 info "Commit changes? [y|n]"
-echo -n "RESP: "
+echo -n "R: "
 read RESP
 
 echo
