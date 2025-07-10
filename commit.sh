@@ -19,8 +19,8 @@ cd $DEST_DIR
 info "Checking for changes"
 git status
 
-info "Commit changes?"
-echo "RESP: [y|n]"
+info "Commit changes? [y|n]"
+echo -n "RESP: "
 read RESP
 
 if [[ $RESP -eq "y" ]]; then
