@@ -11,7 +11,7 @@ EXCLUDE_FILE="$SOURCE_DIR/exclude-list.txt"
 
 COMMIT_MESSAGE="Updated scripts at $(date)" 
 
-info "Synching scripts project"
+info "Synching scripts project \n"
 
 /usr/bin/rsync -av --exclude-from $EXCLUDE_FILE $SOURCE_DIR $DEST_DIR
 cd $DEST_DIR
