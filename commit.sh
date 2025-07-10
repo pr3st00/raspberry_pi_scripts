@@ -11,15 +11,29 @@ EXCLUDE_FILE="$SOURCE_DIR/exclude-list.txt"
 
 COMMIT_MESSAGE="Updated scripts at $(date +'%m/%d/%Y %H:%m:%S')" 
 
-info "Synching scripts project \n"
+function commit() {
+	git add .
+	git commit -m"$COMMIT_MESSAGE"
+	git push
+	echo
+}
 
-/usr/bin/rsync -av --exclude-from $EXCLUDE_FILE $SOURCE_DIR $DEST_DIR
-cd $DEST_DIR
-echo
+function synch() {
+	/usr/bin/rsync -av --exclude-from $EXCLUDE_FILE $SOURCE_DIR $DEST_DIR
+	echo
+}
+
+function check_for_changes() {
+	cd $DEST_DIR
+	git status
+	echo
+}
+
+info "Synching scripts project \n"
+synch
 
 info "Checking for changes \n"
-git status
-echo
+check_for_changes
 
 info "Commit changes? [y|n]"
 echo -n "RESP: "
@@ -28,10 +42,7 @@ read RESP
 echo
 
 if [[ $RESP == "y" ]]; then
-	git add .
-	git commit -m"$COMMIT_MESSAGE"
-	git push
-	echo
+	commit
 fi
 
 info "Completed"
