@@ -15,18 +15,23 @@ info "Synching scripts project \n"
 
 /usr/bin/rsync -av --exclude-from $EXCLUDE_FILE $SOURCE_DIR $DEST_DIR
 cd $DEST_DIR
+echo
 
-info "Checking for changes"
+info "Checking for changes \n"
 git status
+echo
 
 info "Commit changes? [y|n]"
 echo -n "RESP: "
 read RESP
 
-if [[ $RESP -eq "y" ]]; then
+echo
+
+if [[ $RESP == "y" ]]; then
 	git add .
 	git commit -m"$COMMIT_MESSAGE"
 	git push
+	echo
 fi
 
 info "Completed"
