@@ -2,6 +2,7 @@
 # Exclude from rsync
 #
 docker/
+system/data
 lista.m3u
 iptv_update.log
 
