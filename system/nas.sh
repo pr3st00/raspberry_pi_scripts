@@ -71,6 +71,21 @@ function waitForDisks() {
 	info "Completed"
 }
 
+function status() {
+
+	info "Checking status"
+
+	info "Smbd status"
+	systemctl status smbd
+
+	for HD in $DISKS
+	do
+		info "Disk [$HD]"
+		info "Files available: $(ls /external/$HD | wc -l)"
+	done
+
+}
+
 case $1 in
 	mount)
 		logStart
@@ -84,8 +99,11 @@ case $1 in
 		waitForDisks
 		umountall
 		;;
+	status)
+		status
+		;;
 	*)
-		echo "Usage: nas.sh {mount|umount}"
+		echo "Usage: nas.sh {mount|umount|status}"
 		exit 1
 		;;
 esac
