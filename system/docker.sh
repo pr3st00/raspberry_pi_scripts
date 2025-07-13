@@ -1,15 +1,25 @@
 #!/bin/bash
 
+# --------------------------------------------------------------------------------------------------------------
+# Script Name: docker.sh
+# Description: This script centralizes all actions for docker subsystem system
+# Author: Fernando Costa de Almeida
+# Date: 2025-07-13
+# Usage: ./docker.sh {clean_images|clean_volumes|start_required|stop_required|check_for_updates|restart|all}
+# --------------------------------------------------------------------------------------------------------------
+
 SCRIPT=$(readlink -f "$0")
 DIR=$(dirname "$SCRIPT")
 source ${DIR}/../subs/constants.sh
 source ${DIR}/../subs/functions.sh
 
+DOCKER_BIN="/usr/bin/docker"
+
 function clean_images() {
 
 	info "Cleaning all unused images in docker"
 
-	/usr/bin/docker image prune -a -f
+	$DOCKER_BIN image prune -a -f
 
 	info "Completed"
 	event "DOCKER images cleared sucessfully" $SYSTEM_CAT
@@ -19,7 +29,7 @@ function clean_volumes() {
 
 	info "Cleaning all unused volumes in docker"
 
-	/usr/bin/docker volume prune -f
+	$DOCKER_BIN volume prune -f
 
 	info "Completed"
 	event "DOCKER volumes cleared sucessfully" $SYSTEM_CAT
@@ -49,7 +59,7 @@ function start_stop_required() {
 
 	for c in mysql eventproxy google-assistant
 	do
-		/usr/bin/docker $action $c
+		$DOCKER_BIN $action $c
 	done
 
 	for s in nginx
@@ -87,12 +97,12 @@ function check_for_updates {
 		exit 1;
 	fi
 
-	CID=$(docker ps -a --format "{{.ID}} {{.Image}} {{.Names}}" | grep $REGISTRY | awk '{print $1}')
+	CID=$($DOCKER_BIN ps -a --format "{{.ID}} {{.Image}} {{.Names}}" | grep $REGISTRY | awk '{print $1}')
 
 	info "CID is $CID"
 
 	info "Pulling latest image for $IMAGE"
-	docker pull $IMAGE > /dev/null 2>&1
+	$DOCKER_BIN pull $IMAGE > /dev/null 2>&1
 
 	if [[ ! $? -eq 0 ]]; then
 		warn "Error pulling image"
@@ -102,9 +112,9 @@ function check_for_updates {
 
 	for im in $CID
 	do
-		LATEST=`docker inspect --format "{{.Id}}" $IMAGE`
-		RUNNING=`docker inspect --format "{{.Image}}" $im`
-		NAME=`docker inspect --format '{{.Name}}' $im | sed "s/\///g"`
+		LATEST=`$DOCKER_BIN  inspect --format "{{.Id}}"    $IMAGE`
+		RUNNING=`$DOCKER_BIN inspect --format "{{.Image}}" $im`
+		NAME=`$DOCKER_BIN    inspect --format '{{.Name}}'  $im | sed "s/\///g"`
 		info "Latest:" $LATEST
 		info "Running:" $RUNNING
 

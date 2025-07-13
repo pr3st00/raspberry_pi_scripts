@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# ----------------------------------------------------------------------------------------
+# Script Name: backup.sh
+# Description: This script centralizes all backup actitivies of the system
+# Author: Fernando Costa de Almeida
+# Date: 2025-07-13
+# Usage: ./backup.sh {mysql|nas|rclone|config|all}
+# ----------------------------------------------------------------------------------------
+
 SCRIPT=$(readlink -f "$0")
 DIR=$(dirname "$SCRIPT")
 source ${DIR}/../subs/constants.sh
@@ -10,8 +18,8 @@ function rclone_backup() {
 	info "Starting rclone backup"
 
 	EXCLUDE_FILE="${DIR}/config/exclude-list-rclone.txt"
-	LAST_BACKUP_FILE="/home/pi/last_backup.txt"
 	SOURCE_DIR="/home/pi"
+	LAST_BACKUP_FILE="${SOURCE_DIR}/last_backup.txt"
 	DEST_DIR="googledrive:Rclone/Backup/Services"
 	RCLONE_BIN="/usr/bin/rclone"
 

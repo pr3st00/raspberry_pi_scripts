@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# ----------------------------------------------------------------------------------------
+# Script Name: commit.sh
+# Description: This script commits any changes to gitlab repository
+# Author: Fernando Costa de Almeida
+# Date: 2025-07-13
+# Usage: ./commit.sh
+# ----------------------------------------------------------------------------------------
+
 SCRIPT=$(readlink -f "$0")
 DIR=$(dirname "$SCRIPT")
 source ${DIR}/subs/constants.sh
