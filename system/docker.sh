@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# --------------------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------------
 # Script Name: docker.sh
 # Description: This script centralizes all actions for docker subsystem system
 # Author: Fernando Costa de Almeida
 # Date: 2025-07-13
-# Usage: ./docker.sh {clean_images|clean_volumes|start_required|stop_required|check_for_updates|restart|all}
-# --------------------------------------------------------------------------------------------------------------
+# Usage: ./docker.sh {clean_images|clean_volumes|start_required|stop_required|check_for_updates|restart|push_images|all}
+# -----------------------------------------------------------------------------------------------------------------------------
 
 SCRIPT=$(readlink -f "$0")
 DIR=$(dirname "$SCRIPT")
@@ -66,6 +66,19 @@ function start_stop_required() {
 	do
 		(cd /home/pi/docker/$s && docker-compose $action)
 	done
+}
+
+function push_images() {
+	info "Stopping required containers"
+
+	for i in $($DOCKER_BIN image ls | grep pr3st00 | awk '{ print $1 }')
+	do
+		info "IMAGE = [$i]"
+		$DOCKER_BIN push $i
+	done
+
+	info "Completed"
+
 }
 
 function restart() {
@@ -159,8 +172,12 @@ case $1 in
 		logStart
 		restart
 		;;
+	push_images)
+		logStart
+		push_images
+		;;
 	*)
-		echo "Usage: docker.sh {clean_images|clean_volumes|start_required|stop_required|check_for_updates|restart|all}"
+		echo "Usage: docker.sh {clean_images|clean_volumes|start_required|stop_required|check_for_updates|restart|push_images|all}"
 		exit 1
 		;;
 esac
