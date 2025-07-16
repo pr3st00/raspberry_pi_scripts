@@ -16,7 +16,6 @@ source ${DIR}/../subs/functions.sh
 DOCKER_BIN="/usr/bin/docker"
 
 function clean_images() {
-
 	info "Cleaning all unused images in docker"
 
 	$DOCKER_BIN image prune -a -f
@@ -26,7 +25,6 @@ function clean_images() {
 }
 
 function clean_volumes() {
-
 	info "Cleaning all unused volumes in docker"
 
 	$DOCKER_BIN volume prune -f
@@ -36,7 +34,6 @@ function clean_volumes() {
 }
 
 function start_required() {
-
 	info "Starting required containers"
 
 	start_stop_required "start"
@@ -45,7 +42,6 @@ function start_required() {
 }
 
 function stop_required() {
-
 	info "Stopping required containers"
 
 	start_stop_required "stop"
@@ -78,11 +74,9 @@ function push_images() {
 	done
 
 	info "Completed"
-
 }
 
 function restart() {
-
 	info "Restarting docker daeamon"
 
 	sudo systemctl restart docker
