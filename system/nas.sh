@@ -73,15 +73,16 @@ function waitForDisks() {
 
 function status() {
 
-	info "Checking status"
+	info "Checking NAS status"
 
-	info "Smbd status"
+	info "1. SMBD"
 	systemctl status smbd
 
+	info "2. DISKS"
 	for HD in $DISKS
 	do
-		info "Disk [$HD]"
-		info "Files available: $(ls /external/$HD | wc -l)"
+		info "\t Disk [$HD]"
+		info "\t File(s) : [$(ls /external/$HD | wc -l)]"
 	done
 
 }
