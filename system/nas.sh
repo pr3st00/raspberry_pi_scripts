@@ -76,6 +76,7 @@ function status() {
 	info "Checking NAS status"
 
 	info "1. SMBD"
+	debug "Running systemctl"
 	systemctl status smbd
 
 	info "2. DISKS"

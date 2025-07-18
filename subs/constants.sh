@@ -23,9 +23,11 @@ NAS_CAT="nas"
 SYSTEM_CAT="system"
 
 # Misc
-GREEN='\033[00;32m' # green
-RED='\033[00;31m'   # red
-RESET='\033[00;00m' # white
+RED='\033[00;31m'
+GREEN='\033[00;32m'
+YELLOW='\033[00;33m'
+MAGENTA='\033[00;35m'
+RESET='\033[00;00m'  # white
 
 EMAIL_TO="fernando.c.almeida@gmail.com"
 SERVICES_URL="http://services.home"

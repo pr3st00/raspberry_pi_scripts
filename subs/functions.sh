@@ -3,17 +3,33 @@
 #
 
 #
-# Displays info messages
+# Displays info message
 #
 function info() {
 	echo -e "${GREEN}[INFO] ${@}${RESET}"
 }
  
 #
-# Display colorized warning output
+# Display warning message
 #
 function warn() {
-	echo -e "${RED}[WARN] ${@}${RESET}"
+	echo -e "${YELLOW}[WARN] ${@}${RESET}"
+}
+
+#
+# Display error message
+#
+function error() {
+	echo -e "${RED}[ERROR] ${@}${RESET}"
+}
+
+#
+# Displays debug message (if enabled)
+#
+function debug() {
+	if [[ $DEBUG == "1" ]]; then
+		echo -e "${MAGENTA}[DEBUG] ${@}${RESET}"
+	fi
 }
 
 #
