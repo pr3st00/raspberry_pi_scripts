@@ -86,8 +86,10 @@ function config_backup() {
 		report_file "No node found"
 	fi
 
-	report_file ".bashrc"   && cp /home/pi/.bashrc  $BACKUP_DIR/dotconfig/bashrc
-	report_file ".profile"  && cp /home/pi/.profile $BACKUP_DIR/dotconfig/profile
+	for f in $(find /home/pi -maxdepth 1 -type f -iname ".*")
+	do
+		report_file "$f"  && cp $f $BACKUP_DIR/dotconfig
+	done
 
 	info "Completed"
 	event "CONFIG Backup completed sucessfully" "$BACKUP_CAT"
