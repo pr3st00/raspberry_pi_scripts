@@ -2,6 +2,16 @@
 # Shared Functions
 #
 
+. constants.sh
+
+function debugon() {
+	export DEBUG=1
+}
+
+function debugoff() {
+	export DEBUG=0
+}
+
 #
 # Displays info message
 #
