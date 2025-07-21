@@ -86,6 +86,13 @@ function status() {
 		info "\t File(s) : [$(ls /external/$HD | wc -l)]"
 	done
 
+	info "3. CONTAINERS"
+	for CONTAINER in $CONTAINERS
+	do
+		info "\t Container [$CONTAINER]"
+		info "\t [$(docker ps --format  "table | {{.Names}}\t| {{.Status}}\t|" | grep $CONTAINER)]"
+	done
+
 }
 
 case $1 in
