@@ -31,6 +31,8 @@ DEST_FILE="${DEST_DIR}/lista.m3u"
 
 logStart
 
+debug "URL is: $URL"
+
 info "Downloading newest m3u file"
 /usr/bin/wget --user-agent="$USER_AGENT" -q $URL -O $TEMP_FILE
 

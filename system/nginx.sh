@@ -26,7 +26,7 @@ function analyze_all() {
 function generate_report() {
 
 	DB_DIR="/home/pi/scripts/system/data"
-	REPORT_DIR="/home/pi/html/report"
+	REPORT_DIR="/home/pi/projects/html/report"
 	REPORT_FILE="index.html"
 
         info "Generating report"

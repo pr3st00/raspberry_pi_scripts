@@ -2,8 +2,6 @@
 # Shared Functions
 #
 
-. constants.sh
-
 function debugon() {
 	export DEBUG=1
 }

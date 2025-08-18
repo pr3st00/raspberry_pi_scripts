@@ -1,6 +1,8 @@
 # 
 # Exclude from rclone sync
 #
+# SOURCE_DIR="/home/pi"
+#
 # Misc
 .*/**
 n/**
@@ -24,7 +26,7 @@ scripts/docker/portainer/portainer_data/**
 scripts/docker/emulatorjs/data/**
 scripts/docker/nextcloud/nextcloud-data/**
 # Java build artifacts
-projects/java/finance/target
-projects/java/eventproxy/target
-projects/java/jarvis_client_library/target
+projects/java/finance/target/**
+projects/java/eventproxy/target/**
+projects/java/jarvis_client_library/target/**
 # EOF
