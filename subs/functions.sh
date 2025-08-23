@@ -196,6 +196,7 @@ function mailFile() {
 	info "Sending email"
 
 	if [[ -f $FILE ]]; then
+		debug "Email command is: /usr/bin/cat $FILE | stripColors | mailx -s $SUBJECT $TO"
 		/usr/bin/cat $FILE | stripColors | mailx -s "$SUBJECT" $TO
 	else
 		warn "File [$FILE] not found"
@@ -208,6 +209,8 @@ function mailFile() {
 function notifyBackup() {
 	TYPE=$1
 	LOGFILE=$2
+
+	debug "Sending $LOGFILE via email to $EMAIL_TO"
 	
 	mailFile $LOGFILE "[SERVICES][BACKUP] Backup report for $TYPE" $EMAIL_TO
 }
