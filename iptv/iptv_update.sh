@@ -26,7 +26,7 @@ PROCESS_SCRIPT="${SCRIPT_DIR}/process.pl"
 TEMP_DIR="/tmp"
 TEMP_FILE="$TEMP_DIR/templist.m3u"
 
-DEST_DIR="/home/pi/projects/docker/nginx/html/iptv"
+DEST_DIR="/home/pi/projects/html/iptv"
 DEST_FILE="${DEST_DIR}/lista.m3u"
 
 logStart
