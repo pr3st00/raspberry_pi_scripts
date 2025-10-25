@@ -20,6 +20,7 @@ EXCLUDE_FILE="$SOURCE_DIR/exclude-list.txt"
 COMMIT_MESSAGE="Updated scripts at $(date +'%m/%d/%Y %H:%m:%S')" 
 
 function commit() {
+	cd $DEST_DIR
 	git add .
 	git commit -m"$COMMIT_MESSAGE"
 	git push
