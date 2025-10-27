@@ -5,6 +5,8 @@ DIR=$(dirname "$SCRIPT")
 source ${DIR}/../subs/constants.sh
 source ${DIR}/../subs/functions.sh
 
+PING_COUNT=3
+
 HOSTNAME=$1
 DEVICE_NAME=$2
 USAGE="$(basename $SCRIPT) <hostname> <device name on google home>"
@@ -14,19 +16,18 @@ if [[ -z $HOSTNAME || -z $DEVICE_NAME ]]; then
 	exit 1;
 fi
 
-logStart
-info "Starting device disabling automation for device [$DEVICE_NAME]"
+info "$(date) Starting device disabling automation for device [$DEVICE_NAME]"
 
-/usr/bin/ping -c 5 $HOSTNAME > /dev/null 2>&1
+/usr/bin/ping -c $PING_COUNT $HOSTNAME > /dev/null 2>&1
 
 if [[ $? -eq 0 ]]; then
-	info "$HOSTNAME is ALIVE";
-	info "Turning off device $DEVICE_NAME"
+	info "$(date) $HOSTNAME is ALIVE";
+	info "$(date) Turning off device $DEVICE_NAME"
 	ga execute "Desligar $DEVICE_NAME"
 else
-	warn "$HOSTNAME is DOWN, no action required";
+	warn "$(date) $HOSTNAME is DOWN, no action required";
 fi
 
-info "Completed"
+info "$(date) Completed"
 
 # EOF
