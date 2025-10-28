@@ -215,4 +215,18 @@ function notifyBackup() {
 	mailFile $LOGFILE "[SERVICES][BACKUP] Backup report for $TYPE" $EMAIL_TO
 }
 
+function isAlive() {
+
+	HOSTNAME=$1
+	PING_COUNT=3
+
+	if [[ -z $HOSTNAME ]]; then
+		warn "Missing hostname"
+		return 255
+	fi
+
+	/usr/bin/ping -c $PING_COUNT $HOSTNAME > /dev/null 2>&1
+	return $?
+}
+
 # EOF
