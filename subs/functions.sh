@@ -45,6 +45,7 @@ function debug() {
 #
 function stripColors() {
 
+	local line
 	while read line
 	do
 		sed -e "s#\[00;[0-9][0-9]m##g" | sed -e "s#\033##g"
@@ -63,12 +64,12 @@ function logStart() {
 #
 function sms() {
 
-	MESSAGE=$1;
+	local MESSAGE=$1;
 
-	EVENT="HOME_EVENT";
-	KEY=$sec_IFTT_KEY
-	PHONE_NUMBER=$sec_PHONE_NUMBER
-	PAYLOAD="{ \"value1\" : \"$PHONE_NUMBER\", \"value2\" : \"$MESSAGE\" }";
+	local EVENT="HOME_EVENT";
+	local KEY=$sec_IFTT_KEY
+	local PHONE_NUMBER=$sec_PHONE_NUMBER
+	local PAYLOAD="{ \"value1\" : \"$PHONE_NUMBER\", \"value2\" : \"$MESSAGE\" }";
 
 	curl -X POST -H "Content-Type: application/json" -d "$PAYLOAD" https://maker.ifttt.com/trigger/${EVENT}/with/key/${KEY} > /dev/null 2>&1
 }
@@ -78,14 +79,14 @@ function sms() {
 #
 function event() {
 
-	EVENT_MSG=$1
-	EVENT_CAT=$2
+	local EVENT_MSG=$1
+	local EVENT_CAT=$2
 
 	if [[ -z $EVENT_CAT ]]; then
 		EVENT_CAT="default"
 	fi
 
-	EVENT_USER=$(whoami)
+	local EVENT_USER=$(whoami)
 
 	executeQuery "INSERT INTO event VALUES (null,CURRENT_TIMESTAMP(),'$EVENT_CAT','$EVENT_USER','$EVENT_MSG')"
 }
@@ -94,9 +95,9 @@ function event() {
 # List all events
 #
 function getevents() {
-	GROUP=$1
+	local GROUP=$1
 
-	condition=""
+	local condition=""
 
 	if [[ ! -z $GROUP ]]; then
 		condition=" WHERE category = '$GROUP' "
@@ -109,12 +110,12 @@ function getevents() {
 # Executes a mysql query on events db
 #
 function executeQuery() {
-	QUERY=$1
+	local QUERY=$1
 
-	USER=raspberrypi
-	PASS=$sec_MYSQL_ROOT_PASSWORD
-	DB=events
-	CONTAINER=mysql
+	local USER=raspberrypi
+	local PASS=$sec_MYSQL_ROOT_PASSWORD
+	local DB=events
+	local CONTAINER=mysql
 
 	/usr/bin/docker exec -i $CONTAINER mysql -u$USER -p$PASS -D $DB --table <<< "$QUERY"
 }
@@ -123,10 +124,10 @@ function executeQuery() {
 # Calls google assistant
 #
 function ga() {
-	ACTION="$1"
-	COMMAND="$2"
+	local ACTION="$1"
+	local COMMAND="$2"
 
-	USAGE="USAGE: ga <action (say|execute)> <command>"
+	local USAGE="USAGE: ga <action (say|execute)> <command>"
 
 	if [[ -z $ACTION || -z $COMMAND ]]; then
 		warn "Missing action or command"
@@ -153,7 +154,7 @@ function ga() {
 #
 function dockershell() {
 
-	POD=$1
+	local POD=$1
 
 	if [[ -z $POD ]]; then
 		warn "POD is required"
@@ -177,9 +178,9 @@ function dockershell() {
 #
 function mail() {
 
-	BODY=$1
-	SUBJECT=$2
-	TO=$3
+	local BODY=$1
+	local SUBJECT=$2
+	local TO=$3
 
 	/usr/bin/echo "$BODY" | mailx -s "$SUBJECT" $TO
 }
@@ -189,9 +190,9 @@ function mail() {
 #
 function mailFile() {
 
-	FILE=$1
-	SUBJECT=$2
-	TO=$3
+	local FILE=$1
+	local SUBJECT=$2
+	local TO=$3
 
 	info "Sending email"
 
@@ -207,8 +208,8 @@ function mailFile() {
 # Central function for backup notification
 #
 function notifyBackup() {
-	TYPE=$1
-	LOGFILE=$2
+	local TYPE=$1
+	local LOGFILE=$2
 
 	debug "Sending $LOGFILE via email to $EMAIL_TO"
 	
@@ -217,8 +218,8 @@ function notifyBackup() {
 
 function isAlive() {
 
-	HOSTNAME=$1
-	PING_COUNT=3
+	local HOSTNAME=$1
+	local PING_COUNT=3
 
 	if [[ -z $HOSTNAME ]]; then
 		warn "Missing hostname"
