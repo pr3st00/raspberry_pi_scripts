@@ -13,12 +13,6 @@ LOGFILE=/var/log/kodi_monitor.log
 URL=https://maker.ifttt.com/trigger/turn_off_bedroom_tv/with/key/bL6d4dkncSX9PNuQc67JpM
 DELAY=10
 
-function debug() {
-	if [[ $DEBUG -eq 1 ]]; then
-		info "$@";
-	fi
-}
-
 info "Starting kodi monitor"
 
 # Then monitor for lost connection

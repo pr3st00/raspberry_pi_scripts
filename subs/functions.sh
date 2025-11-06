@@ -2,39 +2,39 @@
 # Shared Functions
 #
 
-function debugon() {
+debugon() {
 	export DEBUG=1
 }
 
-function debugoff() {
+debugoff() {
 	export DEBUG=0
 }
 
 #
 # Displays info message
 #
-function info() {
+info() {
 	echo -e "${GREEN}[INFO] ${@}${RESET}"
 }
  
 #
 # Display warning message
 #
-function warn() {
+warn() {
 	echo -e "${YELLOW}[WARN] ${@}${RESET}"
 }
 
 #
 # Display error message
 #
-function error() {
+error() {
 	echo -e "${RED}[ERROR] ${@}${RESET}"
 }
 
 #
 # Displays debug message (if enabled)
 #
-function debug() {
+debug() {
 	if [[ $DEBUG == "1" ]]; then
 		echo -e "${MAGENTA}[DEBUG] ${@}${RESET}"
 	fi
@@ -43,7 +43,7 @@ function debug() {
 #
 # Strip color characters
 #
-function stripColors() {
+stripColors() {
 
 	local line
 	while read line
@@ -55,14 +55,14 @@ function stripColors() {
 #
 # Logs start of a process
 #
-function logStart() {
+logStart() {
 	info "Process started at $(date)"
 }
 
 #
 # Sends an SMS
 #
-function sms() {
+sms() {
 
 	local MESSAGE=$1;
 
@@ -77,7 +77,7 @@ function sms() {
 #
 # Record an event
 #
-function event() {
+event() {
 
 	local EVENT_MSG=$1
 	local EVENT_CAT=$2
@@ -94,7 +94,7 @@ function event() {
 #
 # List all events
 #
-function getevents() {
+getevents() {
 	local GROUP=$1
 
 	local condition=""
@@ -109,7 +109,7 @@ function getevents() {
 #
 # Executes a mysql query on events db
 #
-function executeQuery() {
+executeQuery() {
 	local QUERY=$1
 
 	local USER=raspberrypi
@@ -123,7 +123,7 @@ function executeQuery() {
 #
 # Calls google assistant
 #
-function ga() {
+ga() {
 	local ACTION="$1"
 	local COMMAND="$2"
 
@@ -152,7 +152,7 @@ function ga() {
 #
 # Executes bash in the container
 #
-function dockershell() {
+dockershell() {
 
 	local POD=$1
 
@@ -176,7 +176,7 @@ function dockershell() {
 #
 # Sends an email
 #
-function mail() {
+mail() {
 
 	local BODY=$1
 	local SUBJECT=$2
@@ -188,7 +188,7 @@ function mail() {
 #
 # Sends a file by email
 #
-function mailFile() {
+mailFile() {
 
 	local FILE=$1
 	local SUBJECT=$2
@@ -205,9 +205,9 @@ function mailFile() {
 }
 
 #
-# Central function for backup notification
+# Central for backup notification
 #
-function notifyBackup() {
+notifyBackup() {
 	local TYPE=$1
 	local LOGFILE=$2
 
@@ -216,7 +216,7 @@ function notifyBackup() {
 	mailFile $LOGFILE "[SERVICES][BACKUP] Backup report for $TYPE" $EMAIL_TO
 }
 
-function isAlive() {
+isAlive() {
 
 	local HOSTNAME=$1
 	local PING_COUNT=3
