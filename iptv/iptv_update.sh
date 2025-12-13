@@ -9,11 +9,11 @@ source ${DIR}/../subs/functions.sh
 # Script Parameters
 #
 HOST1="acsb.sh"
-HOST2="01.vistaplay.me"
+HOST2="cb.vistaplay.me"
 HOST3="prestotv.sytes.net"
-HOST=$HOST3
+HOST=$HOST2
 
-URL="http://$HOST3/get.php?username=$sec_IPTV_USER&password=$sec_IPTV_PASSWORD&type=m3u_plus&output=ts"
+URL="http://$HOST/get.php?username=$sec_IPTV_USER&password=$sec_IPTV_PASSWORD&type=m3u_plus&output=ts"
 USER_AGENT="Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:40.0) Gecko/20100101 Firefox/40.0"
 MAX_ENTRIES=20000
 CLEANUP=0
