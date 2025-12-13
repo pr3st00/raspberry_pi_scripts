@@ -35,7 +35,7 @@ error() {
 # Displays debug message (if enabled)
 #
 debug() {
-	if [[ $DEBUG == "1" ]]; then
+	if [[ "$DEBUG" == "1" ]]; then
 		echo -e "${MAGENTA}[DEBUG] ${@}${RESET}"
 	fi
 }
@@ -131,7 +131,7 @@ ga() {
 
 	if [[ -z $ACTION || -z $COMMAND ]]; then
 		warn "Missing action or command"
-		echo $USAGE
+		echo "$USAGE"
 		return
 	fi
 
@@ -160,13 +160,13 @@ dockershell() {
 		warn "POD is required"
 	else
 		info "Trying bash..."
-		/usr/bin/docker exec -it $POD /bin/bash
+		/usr/bin/docker exec -it "$POD" /bin/bash
 
 		RETURN_CODE=$?
 
-		if [[ $RETURN_CODE -ne 0 ]]; then
+		if [[ "$RETURN_CODE" -ne 0 ]]; then
 			info "Trying sh..."
-			/usr/bin/docker exec -it $POD /bin/sh
+			/usr/bin/docker exec -it "$POD" /bin/sh
 		fi
 
 		info "Return code is [$RETURN_CODE]"
@@ -213,7 +213,7 @@ notifyBackup() {
 
 	debug "Sending $LOGFILE via email to $EMAIL_TO"
 	
-	mailFile $LOGFILE "[SERVICES][BACKUP] Backup report for $TYPE" $EMAIL_TO
+	mailFile "$LOGFILE" "[SERVICES][BACKUP] Backup report for $TYPE" "$EMAIL_TO"
 }
 
 isAlive() {
@@ -226,7 +226,7 @@ isAlive() {
 		return 255
 	fi
 
-	/usr/bin/ping -c $PING_COUNT $HOSTNAME > /dev/null 2>&1
+	/usr/bin/ping -c "$PING_COUNT" "$HOSTNAME" > /dev/null 2>&1
 	return $?
 }
 
