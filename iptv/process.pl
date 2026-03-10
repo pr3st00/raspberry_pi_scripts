@@ -8,11 +8,10 @@ my $DEBUG=0;
 my $just_found_group;
 my $hide_channel;
                    #EXTINF:-1 tvg-name="A&E HDR" tvg-logo="26e.png" group-title="CanaiRa",A&E 4K FHDR
-my $m3u_regex = qr/#EXTINF:-1 tvg-name="(.*)" tvg-logo="([^"]+)" group-title="([^"]+)",(.*)/;
+my $m3u_regex = qr/#EXTINF:-1.*tvg-name="(.*)".*tvg-logo="([^"]*)".*group-title="([^"]+)",(.*)/;
 
 #EXTM3U
 #EXT-X-SESSION-DATA:DATA-ID="com.xui.1_5_5r2"
-my $num_headers     = 2;
 
 my $hide_file_list  = shift();
 my $allow_file_list = shift();
@@ -41,7 +40,8 @@ my $allow_regex_string = join '|', @{$allow_regex_list};
 &debug("Final deny  regex is [$deny_regex_string]", $DEBUG);
 &debug("Final allow regex is [$allow_regex_string]", $DEBUG);
 
-my $num_entries = -$num_headers;
+$| = 1;
+my $num_entries = 0;
 
 while (<STDIN>) {
 
@@ -50,16 +50,18 @@ while (<STDIN>) {
 		last;
 	}
 
-	#chomp();
-
 	my $group;
 	my $line=$_;
+
+	chomp($line);
+	$line =~ s/\r$//;
 	
+	&debug(" ", $DEBUG);
 	&debug("----------------------------------------------------------------------------------------------------", $DEBUG);
-	&debug("Processing line $line", $DEBUG);
+	&debug("Processing line [$line]", $DEBUG);
 	
 	if (/$m3u_regex/g) {
-		&debug("Line matches!, $DEBUG");
+		&debug("Line matches a group definition", $DEBUG);
 
 		my $group = $3;
 		
@@ -67,22 +69,23 @@ while (<STDIN>) {
 
 		if ($group =~ /$allow_regex_string/) {
 			&debug("Allowing group [$group]", $DEBUG);
-			print $line;
+			print "$line \n";
 		} elsif ($group =~ /$deny_regex_string/) {
 			&debug("Hiding group [$group]", $DEBUG);
 			$hide_channel=1;
 		} else {
-			&debug("Defaulting group [$group]", $DEBUG);
-			print $line;
+			&debug("Defaulting allow for group [$group]", $DEBUG);
+			print "$line \n";
 		}
 	}
 	else {
 		if ($hide_channel) {
+			&debug("Not adding line and resetting group hiding", $DEBUG);
 			undef $hide_channel;
 		} else {
 			$num_entries++;
-			&debug("Adding channel", $DEBUG);
-			print $line;
+			&debug("Adding line", $DEBUG);
+			print "$line \n";
 		}
 	}
 
@@ -91,7 +94,7 @@ while (<STDIN>) {
 
 sub debug() {
 	my $mesg = shift();
-	print STDERR "[DEBUG] $mesg \n" if $DEBUG;
+	print STDERR "$mesg \n" if $DEBUG;
 }
 
 sub usage() {

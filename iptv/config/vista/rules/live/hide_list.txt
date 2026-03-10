@@ -1,0 +1,10 @@
+.*4K.*
+.*Canais.*\|.*4K.*
+.*Canais.*\|.*Religiosos.*
+.*Canais.*\|.*Adultos.*
+.*Canais.*\|.*Apple TV.*
+PT:.*
+.*Series.*\|.*
+.*Novelas.*
+.*Filmes.*\|.*XXX.*Adultos.*
+.*XXX.*Filmes.*Adultos.*

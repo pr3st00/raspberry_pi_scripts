@@ -4,8 +4,8 @@
 # Script Name: docker.sh
 # Description: This script centralizes all actions for docker subsystem system
 # Author: Fernando Costa de Almeida
-# Date: 2025-07-13
-# Usage: ./docker.sh {clean_images|clean_volumes|start_required|stop_required|check_for_updates|restart|push_images|all}
+# Date: 2026-02-26
+# Usage: ./docker.sh {clean_images|clean_volumes|prune|start_required|stop_required|check_for_updates|restart|push_images|all}
 # -----------------------------------------------------------------------------------------------------------------------------
 
 SCRIPT=$(readlink -f "$0")
@@ -31,6 +31,17 @@ function clean_volumes() {
 
 	info "Completed"
 	event "DOCKER volumes cleared sucessfully" $SYSTEM_CAT
+}
+
+function prune() {
+	info "Checking current disk usage"
+	$DOCKER_BIN system df
+
+	info "Prunning resources, please wait..."
+	$DOCKER_BIN system prune -a
+
+	info "Resulting disk usage"
+	$DOCKER_BIN system df
 }
 
 function start_required() {
@@ -150,6 +161,10 @@ case $1 in
 		logStart
 		clean_volumes
 		;;
+	prune)
+		logStart
+		prune
+		;;
 	start_required)
 		logStart
 		start_required
@@ -171,7 +186,7 @@ case $1 in
 		push_images
 		;;
 	*)
-		echo "Usage: docker.sh {clean_images|clean_volumes|start_required|stop_required|check_for_updates|restart|push_images|all}"
+		echo "Usage: docker.sh {clean_images|clean_volumes|prune|start_required|stop_required|check_for_updates|restart|push_images|all}"
 		exit 1
 		;;
 esac
