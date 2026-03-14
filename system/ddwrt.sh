@@ -12,7 +12,7 @@ ROUTER_HOST="router"
 ROUTER_USER="root"
 ROUTER_PASS="05trunks"
 
-function backup() {
+backup() {
 
 	info "Starting router backup"
 
@@ -39,7 +39,7 @@ function backup() {
 	event "ROUTER Backup completed sucessfully" $BACKUP_CAT
 }
 
-function generatedns() {
+generatedns() {
 	info "Generating dns configuration"
 	info "Completed"
 }

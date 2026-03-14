@@ -15,7 +15,7 @@ source ${DIR}/../subs/functions.sh
 
 DOCKER_BIN="/usr/bin/docker"
 
-function clean_images() {
+clean_images() {
 	info "Cleaning all unused images in docker"
 
 	$DOCKER_BIN image prune -a -f
@@ -24,7 +24,7 @@ function clean_images() {
 	event "DOCKER images cleared sucessfully" $SYSTEM_CAT
 }
 
-function clean_volumes() {
+clean_volumes() {
 	info "Cleaning all unused volumes in docker"
 
 	$DOCKER_BIN volume prune -f
@@ -33,7 +33,7 @@ function clean_volumes() {
 	event "DOCKER volumes cleared sucessfully" $SYSTEM_CAT
 }
 
-function prune() {
+prune() {
 	info "Checking current disk usage"
 	$DOCKER_BIN system df
 
@@ -44,7 +44,7 @@ function prune() {
 	$DOCKER_BIN system df
 }
 
-function start_required() {
+start_required() {
 	info "Starting required containers"
 
 	start_stop_required "start"
@@ -52,7 +52,7 @@ function start_required() {
 	info "Completed"
 }
 
-function stop_required() {
+stop_required() {
 	info "Stopping required containers"
 
 	start_stop_required "stop"
@@ -60,7 +60,7 @@ function stop_required() {
 	info "Completed"
 }
 
-function start_stop_required() {
+start_stop_required() {
 
 	action=$1;
 
@@ -75,7 +75,7 @@ function start_stop_required() {
 	done
 }
 
-function push_images() {
+push_images() {
 	info "Stopping required containers"
 
 	for i in $($DOCKER_BIN image ls | grep pr3st00 | awk '{ print $1 }')
@@ -87,7 +87,7 @@ function push_images() {
 	info "Completed"
 }
 
-function restart() {
+restart() {
 	info "Restarting docker daeamon"
 
 	sudo systemctl restart docker
@@ -95,7 +95,7 @@ function restart() {
 	info "Completed"
 }
 
-function check_for_updates {
+check_for_updates() {
 
 	USAGE="USAGE: check_for_updates <REGISTRY> <BASE_IMAGE>";
 

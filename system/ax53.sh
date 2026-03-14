@@ -13,7 +13,7 @@ ROUTER_PASS=$sec_ROUTER_PASS
 
 FILE="backup-Archer_AX53-2023-09-10.bin"
 
-function backup() {
+backup() {
 	info "Starting router backup"
 
 	if [[ ! -d ${ROUTER_BACKUP_DIR}/old ]]; then

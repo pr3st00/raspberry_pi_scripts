@@ -2,10 +2,16 @@
 # Shared Functions
 #
 
+#
+# Turns debug on
+#
 debugon() {
 	export DEBUG=1
 }
 
+#
+# Turns debug off
+#
 debugoff() {
 	export DEBUG=0
 }
@@ -216,6 +222,9 @@ notifyBackup() {
 	mailFile "$LOGFILE" "[SERVICES][BACKUP] Backup report for $TYPE" "$EMAIL_TO"
 }
 
+#
+# Checks if a hostname is alive
+#
 isAlive() {
 
 	local HOSTNAME=$1

@@ -13,7 +13,7 @@ DIR=$(dirname "$SCRIPT")
 source "${DIR}"/../subs/constants.sh
 source "${DIR}"/../subs/functions.sh
 
-function rclone_backup() {
+rclone_backup() {
 
 	info "Starting rclone backup"
 
@@ -29,7 +29,7 @@ function rclone_backup() {
 	event "RCLONE Backup completed sucessfully" $BACKUP_CAT
 }
 
-function mysql_backup() {
+mysql_backup() {
 
 	info "Cleaning old event records"
 	executeQuery "delete from event where datetime <= DATE_SUB(SYSDATE(), INTERVAL 60 DAY)"
@@ -41,7 +41,7 @@ function mysql_backup() {
 	event "MYSQL Backup completed sucessfully" "$BACKUP_CAT"
 }
 
-function nas_backup() {
+nas_backup() {
 
 	SOURCE_DIR="/external"
 	DEST_DIR="/backup"
@@ -57,7 +57,7 @@ function nas_backup() {
 	event "NAS Backup completed sucessfully" "$BACKUP_CAT"
 }
 
-function config_backup() {
+config_backup() {
 
 	FILE_LIST_NAME="${DIR}/config/files-to-backup.txt"
 	
@@ -95,7 +95,7 @@ function config_backup() {
 	event "CONFIG Backup completed sucessfully" "$BACKUP_CAT"
 }
 
-function report_file() {
+report_file() {
 	printf " %-25s\t%-20s\n" "$@" "[OK]"
 }
 
