@@ -20,7 +20,7 @@ EXCLUDE_FILE="$SOURCE_DIR/exclude-list.txt"
 COMMIT_MESSAGE="Updated scripts at $(date +'%m/%d/%Y %H:%m:%S')" 
 
 commit() {
-	cd "$DEST_DIR"
+	cd "$DEST_DIR" || exit
 	git add .
 	git commit -m"$COMMIT_MESSAGE"
 	git push
@@ -33,7 +33,7 @@ synch() {
 }
 
 check_for_changes() {
-	cd "$DEST_DIR"
+	cd "$DEST_DIR" || exit
 	git status
 	echo
 }

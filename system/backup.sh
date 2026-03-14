@@ -10,8 +10,8 @@
 
 SCRIPT=$(readlink -f "$0")
 DIR=$(dirname "$SCRIPT")
-source ${DIR}/../subs/constants.sh
-source ${DIR}/../subs/functions.sh
+source "${DIR}"/../subs/constants.sh
+source "${DIR}"/../subs/functions.sh
 
 function rclone_backup() {
 

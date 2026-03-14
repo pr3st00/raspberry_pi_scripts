@@ -2,8 +2,8 @@
 
 SCRIPT=$(readlink -f "$0")
 DIR=$(dirname "$SCRIPT")
-source ${DIR}/../subs/constants.sh
-source ${DIR}/../subs/functions.sh
+source "${DIR}"/../subs/constants.sh
+source "${DIR}"/../subs/functions.sh
 
 ROUTER_BACKUP_DIR="${BACKUP_DIR}/devices/router/ax53"
 ROUTER_LOG_DIR="${LOG_DIR}/backup"
@@ -18,18 +18,18 @@ function backup() {
 
 	if [[ ! -d ${ROUTER_BACKUP_DIR}/old ]]; then
 		warn "Directory ${ROUTER_BACKUP_DIR}/old doesnt exist, creating..."
-		mkdir -p ${ROUTER_BACKUP_DIR}/old
+		mkdir -p "${ROUTER_BACKUP_DIR}"/old
 	fi
 
 	info "Moving old backups"
-	mv ${ROUTER_BACKUP_DIR}/* ${ROUTER_BACKUP_DIR}/old 2>/dev/null
+	mv "${ROUTER_BACKUP_DIR}"/* "${ROUTER_BACKUP_DIR}"/old 2>/dev/null
 	
 	info "HTTP backups"
 
-	/usr/bin/wget -q  --password ${ROUTER_PASS} -P ${ROUTER_BACKUP_DIR} http://${ROUTER_HOST} -O ${FILE}
+	/usr/bin/wget -q  --password "${ROUTER_PASS}" -P "${ROUTER_BACKUP_DIR}" http://"${ROUTER_HOST}" -O "${FILE}"
 
 	info "Completed"
-	event "ROUTER Backup completed sucessfully" $BACKUP_CAT
+	event "ROUTER Backup completed sucessfully" "$BACKUP_CAT"
 }
 
 # Main
@@ -37,7 +37,7 @@ case $1 in
 	backup)
 		logStart
 		backup
-		notifyBackup "AX53" $ROUTER_LOG_DIR/router_backup.log
+		notifyBackup "AX53" "${ROUTER_LOG_DIR}"/router_backup.log
 		;;
 	*)
 		echo "Usage: router.sh {backup}"
