@@ -50,7 +50,6 @@ debug() {
 # Strip color characters
 #
 stripColors() {
-
 	local line
 	while read line
 	do
@@ -69,7 +68,6 @@ logStart() {
 # Sends an SMS
 #
 sms() {
-
 	local MESSAGE=$1;
 
 	local EVENT="HOME_EVENT";
@@ -84,7 +82,6 @@ sms() {
 # Record an event
 #
 event() {
-
 	local EVENT_MSG=$1
 	local EVENT_CAT=$2
 
@@ -159,7 +156,6 @@ ga() {
 # Executes bash in the container
 #
 dockershell() {
-
 	local POD=$1
 
 	if [[ -z $POD ]]; then
@@ -183,7 +179,6 @@ dockershell() {
 # Sends an email
 #
 mail() {
-
 	local BODY=$1
 	local SUBJECT=$2
 	local TO=$3
@@ -195,7 +190,6 @@ mail() {
 # Sends a file by email
 #
 mailFile() {
-
 	local FILE=$1
 	local SUBJECT=$2
 	local TO=$3
@@ -226,7 +220,6 @@ notifyBackup() {
 # Checks if a hostname is alive
 #
 isAlive() {
-
 	local HOSTNAME=$1
 	local PING_COUNT=3
 
