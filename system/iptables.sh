@@ -45,7 +45,7 @@ function setup() {
 
 	info "Local services"
 
-	for service in minidlna:tcp:8200 minidlna:udp:1900 nas:udp:137 nas:udp:138 nas:tcp:139 nas:tcp:445 ga:tcp:5000
+	for service in minidlna:tcp:8200 minidlna:udp:1900 nas:udp:137 nas:udp:138 nas:tcp:139 nas:tcp:445 ga:tcp:5000 tuya:udp:6667 mdns:udp:5353
 	do
 		openToSource $service $LOCAL_NETWORK
 	done

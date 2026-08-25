@@ -24,6 +24,7 @@ scripts/docker/nextcloud/nextcloud-data/data/**
 scripts/docker/nextcloud/nextcloud-data/config/**
 scripts/docker/portainer/portainer_data/**
 scripts/docker/emulatorjs/data/**
+scripts/docker/mariadb/data/**
 scripts/docker/nextcloud/nextcloud-data/**
 # Java build artifacts
 projects/java/finance/target/**

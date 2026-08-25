@@ -8,6 +8,7 @@ HOST2="cb.vistaplay.me"
 HOST3="prestotv.sytes.net"
 HOST4="rootdns.me"
 HOST5="cb.visualprint.me"
+HOST6="cb.visualplay.online"
 
 HOST=$HOST3
 
