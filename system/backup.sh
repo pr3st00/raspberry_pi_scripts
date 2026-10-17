@@ -13,6 +13,31 @@ DIR=$(dirname "$SCRIPT")
 source "${DIR}"/../subs/constants.sh
 source "${DIR}"/../subs/functions.sh
 
+EXTERNAL_DISK=/external/hd1
+BACKUP_DIR=Backup
+IMAGE_FILE=raspbian_backup.img
+SYSTEM_DEVICE=/dev/mmcblk0
+BACKUP_MOUNT_PATH=~/mnt_backup
+#
+# 1. Run fdisk -l $EXTERNAL_DISK/$BACKUP_DIR/$IMAGE_FILE
+# 2. Search for Linux (83) and find Start.
+#
+START_SECTOR=$(fdisk -l /external/hd1/Backup/raspbian_backup.img | grep Linux | awk '{ print $2 }')
+OFFSET=$((512*$START_SECTOR))
+
+system_mount() {
+	mkdir -p $BACKUP_MOUNT_PATH
+	fdisk -l $EXTERNAL_DISK/$BACKUP_DIR/$IMAGE_FILE
+	sudo mount -o loop,offset=$((512*START_SECTOR)) $EXTERNAL_DISK/$BACKUP_DIR/$IMAGE_FILE $BACKUP_MOUNT_PATH
+}
+
+system_backup() {
+	info "Starting system backup"
+	sudo dd if=$SYSTEM_DEVICE of=$EXTERNAL_DISK/$BACKUP_DIR/$IMAGE_FILE bs=4M status=progress
+	info "Completed"
+	event "SYSTEM Backup completed sucessfully" $BACKUP_CAT
+}
+
 rclone_backup() {
 
 	info "Starting rclone backup"
@@ -123,13 +148,21 @@ case $1 in
 		nas_backup
 		notifyBackup "NAS" $LOG_DIR/backup/nas_backup.log
 		;;
+	system)
+		logStart
+		system_backup
+		;;
+	system_mount)
+		logStart
+		system_mount
+		;;
 	config)
 		logStart
 		config_backup
 		notifyBackup "CONFIG" $LOG_DIR/backup/config_backup.log
 		;;
 	*)
-		echo "Usage: backup.sh {mysql|nas|rclone|config|all}"
+		echo "Usage: backup.sh {mysql|nas|rclone|config|system|system_mount|all}"
 		exit 1
 		;;
 esac

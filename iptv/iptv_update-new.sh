@@ -20,6 +20,15 @@ logStart
 
 PARAMETERS=$1
 
+usage() {
+	echo "Usage: $(basename $SCRIPT) <parameters_file>"
+}
+
+if [[ -z $PARAMETERS ]]; then
+	usage
+	exit 1
+fi
+
 if [[ ! -f $PARAMETERS ]]; then
 	warn "Parameters file $PARAMETERS not found"
 	exit 255
