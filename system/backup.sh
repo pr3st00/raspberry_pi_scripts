@@ -23,7 +23,7 @@ BACKUP_MOUNT_PATH=~/mnt_backup
 # 2. Search for Linux (83) and find Start.
 #
 START_SECTOR=$(fdisk -l $EXTERNAL_DISK/$BACKUP_DIR/$IMAGE_FILE | grep Linux | awk '{ print $2 }')
-OFFSET=$((512*$START_SECTOR))
+OFFSET=$((512*START_SECTOR))
 
 system_mount() {
 	info "Mounting system backup"
