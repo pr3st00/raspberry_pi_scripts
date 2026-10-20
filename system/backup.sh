@@ -18,15 +18,16 @@ BACKUP_DIR=Backup
 IMAGE_FILE=raspbian_backup.img
 SYSTEM_DEVICE=/dev/mmcblk0
 BACKUP_MOUNT_PATH=~/mnt_backup
-#
-# 1. Run fdisk -l $EXTERNAL_DISK/$BACKUP_DIR/$IMAGE_FILE
-# 2. Search for Linux (83) and find Start.
-#
-START_SECTOR=$(fdisk -l $EXTERNAL_DISK/$BACKUP_DIR/$IMAGE_FILE | grep Linux | awk '{ print $2 }')
-OFFSET=$((512*START_SECTOR))
 
 system_mount() {
 	info "Mounting system backup"
+
+	#
+	# 1. Run fdisk -l $EXTERNAL_DISK/$BACKUP_DIR/$IMAGE_FILE
+	# 2. Search for Linux (83) and find Start.
+	#
+	local START_SECTOR=$(/usr/sbin/fdisk -l $EXTERNAL_DISK/$BACKUP_DIR/$IMAGE_FILE | grep Linux | awk '{ print $2 }')
+	local OFFSET=$((512*START_SECTOR))
 
 	mkdir -p $BACKUP_MOUNT_PATH
 	sudo mount -o loop,offset=$OFFSET $EXTERNAL_DISK/$BACKUP_DIR/$IMAGE_FILE $BACKUP_MOUNT_PATH
