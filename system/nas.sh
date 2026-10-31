@@ -77,7 +77,7 @@ function status() {
 
 	info "1. SMBD"
 	debug "Running systemctl"
-	systemctl status smbd
+	systemctl status smbd | egrep "Active|Loaded"
 
 	info "2. DISKS"
 	for HD in $DISKS

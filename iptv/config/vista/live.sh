@@ -9,8 +9,9 @@ HOST3="prestotv.sytes.net"
 HOST4="rootdns.me"
 HOST5="cb.visualprint.me"
 HOST6="cb.visualplay.online"
+HOST7="tv.presto.xyz.br"
 
-HOST=$HOST3
+HOST=$HOST7
 
 URL_TYPE=m3u_plus
 URL_OUTPUT=m3u8

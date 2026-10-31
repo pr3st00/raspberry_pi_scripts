@@ -13,8 +13,6 @@ DIR=$(dirname "$SCRIPT")
 source "${DIR}/subs/constants.sh"
 source "${DIR}/subs/functions.sh"
 
-##DESC Lists all available scripts
-
 # Bold variants
 CYAN=$'\033[0;36m'
 GREEN=$'\033[0;32m'
@@ -35,7 +33,7 @@ do
         dir=$(echo $script | cut -d'/' -f3)
         scriptname=$(basename $script)
         category=$(echo $script | cut -d'/' -f2)
-        desc=$(grep "##DESC" $script | grep -v grep | sed -e 's/##DESC//g')
+        desc=$(grep "Description:" $script | grep -v grep | cut -d':' -f 2)
 
         if [[ -z $dir ]]; then
                 category="BASE"

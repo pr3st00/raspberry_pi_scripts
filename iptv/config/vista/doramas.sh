@@ -8,8 +8,9 @@ HOST2="cb.vistaplay.me"
 HOST3="prestotv.sytes.net"
 HOST4="rootdns.me"
 HOST5="cb.visualprint.me"
+HOST6="tv.presto.xyz.br"
 
-HOST=$HOST3
+HOST=$HOST6
 
 URL="http://$HOST/get.php?username=$sec_IPTV_USER&password=$sec_IPTV_PASSWORD&type=m3u_plus&output=ts"
 MAX_ENTRIES=300000
