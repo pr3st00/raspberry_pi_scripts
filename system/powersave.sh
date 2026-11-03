@@ -13,6 +13,8 @@ DIR=$(dirname "$SCRIPT")
 source "${DIR}"/../subs/constants.sh
 source "${DIR}"/../subs/functions.sh
 
+CONNECTION="netplan-wlan0-PR3ST00"
+
 on() {
 	info "Turn power saving ON"
 	sudo iw dev wlan0 set power_save on
@@ -21,6 +23,12 @@ on() {
 off() {
 	info "Turn power saving OFF"
 	sudo iw dev wlan0 set power_save off
+}
+
+persistoff() {
+	info "Turn power saving OFF (persist)"
+	sudo nmcli connection modify $CONNECTION \
+    		802-11-wireless.powersave 2
 }
 
 status() {
@@ -40,12 +48,16 @@ case $1 in
 		off
 		status
 		;;
+	persistoff)
+		logStart
+		persistoff
+		;;
 	status)
 		logStart
 		status
 		;;
 	*)
-		echo "Usage: powersave.sh {on|off|status}"
+		echo "Usage: powersave.sh {on|off|persistoff|status}"
 		exit 1
 		;;
 esac
