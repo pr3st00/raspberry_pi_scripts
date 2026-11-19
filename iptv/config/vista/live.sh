@@ -11,7 +11,7 @@ HOST5="cb.visualprint.me"
 HOST6="cb.visualplay.online"
 HOST7="tv.presto.xyz.br"
 
-HOST=$HOST7
+HOST=$HOST3
 
 URL_TYPE=m3u_plus
 URL_OUTPUT=m3u8
